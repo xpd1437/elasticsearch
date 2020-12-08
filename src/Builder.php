@@ -1,6 +1,6 @@
 <?php
 
-namespace CrCms\ElasticSearch;
+namespace Xpd1437\ElasticSearch;
 
 use Elasticsearch\Client;
 use Illuminate\Support\Collection;

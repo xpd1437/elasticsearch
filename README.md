@@ -1,13 +1,13 @@
-# Crcms Elasticsearch
+# Xpd1437 Elasticsearch
 
 
-[![Latest Stable Version](https://poser.pugx.org/crcms/elasticsearch/v/stable)](https://packagist.org/packages/crcms/elasticsearch)
-[![License](https://poser.pugx.org/crcms/elasticsearch/license)](https://packagist.org/packages/crcms/elasticsearch)
+[![Latest Stable Version](https://poser.pugx.org/xpd1437/elasticsearch/v/stable)](https://packagist.org/packages/xpd1437/elasticsearch)
+[![License](https://poser.pugx.org/xpd1437/elasticsearch/license)](https://packagist.org/packages/xpd1437/elasticsearch)
 [![StyleCI](https://github.styleci.io/repos/100927763/shield?branch=master)](https://github.styleci.io/repos/100927763)
 
 ## Version Matrix
 
-| Elasticsearch Version | crcms/elasticsearch Branch |
+| Elasticsearch Version | xpd1437/elasticsearch Branch |
 | --------------------- | ------------------------ |
 | >= 6.0                | 1.*                      |
 | >= 5.0, < 6.0         | 0.*                      |
@@ -17,7 +17,7 @@
 You can install the package via composer:
 
 ```
-composer require crcms/elasticsearch
+composer require xpd1437/elasticsearch
 ```
 
 ## Laravel
@@ -26,14 +26,14 @@ Modify ``config / app.php``
 
 ```
 'providers' => [
-    CrCms\ElasticSearch\LaravelServiceProvider::class,
+    Xpd1437\ElasticSearch\LaravelServiceProvider::class,
 ]
 
 ```
 
 If you'd like to make configuration changes in the configuration file you can pubish it with the following Aritsan command:
 ```
-php artisan vendor:publish --provider="CrCms\ElasticSearch\LaravelServiceProvider"
+php artisan vendor:publish --provider="Xpd1437\ElasticSearch\LaravelServiceProvider"
 ```
 
 
@@ -44,7 +44,7 @@ php artisan vendor:publish --provider="CrCms\ElasticSearch\LaravelServiceProvide
 
 ```php
 
-Route::get('test/create',function(\CrCms\ElasticSearch\Builder $builder){
+Route::get('test/create',function(\Xpd1437\ElasticSearch\Builder $builder){
     $result = $builder->index('index')->type('type')->create([
 		'key' => 'value',
     ]);
@@ -57,7 +57,7 @@ Route::get('test/create',function(\CrCms\ElasticSearch\Builder $builder){
 
 ```php
 
-Route::get('test/create',function(\CrCms\ElasticSearch\Builder $builder){
+Route::get('test/create',function(\Xpd1437\ElasticSearch\Builder $builder){
     $result = $builder->index('index')->type('type')->update('id',[
 		'key' => 'value2',
     ]);
@@ -70,7 +70,7 @@ Route::get('test/create',function(\CrCms\ElasticSearch\Builder $builder){
 
 ```php
 
-Route::get('test/create',function(\CrCms\ElasticSearch\Builder $builder){
+Route::get('test/create',function(\Xpd1437\ElasticSearch\Builder $builder){
     $result = $builder->index('index')->type('type')->delete('id');
     dump($result);
 });
@@ -81,7 +81,7 @@ Route::get('test/create',function(\CrCms\ElasticSearch\Builder $builder){
 
 ```php
 
-Route::get('test/create',function(\CrCms\ElasticSearch\Builder $builder){
+Route::get('test/create',function(\Xpd1437\ElasticSearch\Builder $builder){
     $builder = $builder->index('index')->type('type');
 	
 	//SQL:select ... where id = 1 limit 1;

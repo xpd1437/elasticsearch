@@ -1,5 +1,5 @@
 {
-  "name": "crcms/elasticsearch",
+  "name": "xpd1437/elasticsearch",
   "description": "Use SQL statements to query elasticsearch",
   "keywords": [
     "elasticsearch",
@@ -8,7 +8,7 @@
     "orm",
     "php"
   ],
-  "homepage": "https://github.com/crcms/elasticsearch",
+  "homepage": "https://github.com/xpd1437/elasticsearch",
   "license": "MIT",
   "authors": [
     {
@@ -26,13 +26,13 @@
     "files": [
     ],
     "psr-4": {
-      "CrCms\\ElasticSearch\\": "src/"
+      "Xpd1437\\ElasticSearch\\": "src/"
     }
   },
   "extra": {
     "laravel": {
       "providers": [
-        "CrCms\\ElasticSearch\\LaravelServiceProvider"
+        "Xpd1437\\ElasticSearch\\LaravelServiceProvider"
       ],
       "aliases": {
       }
