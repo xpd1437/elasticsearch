@@ -68,6 +68,7 @@ class Builder
         '>=' => 'gte',
         '<'  => 'lt',
         '<=' => 'lte',
+        "!=" => "ne"
     ];
 
     /**
@@ -367,6 +368,51 @@ class Builder
     }
 
     /**
+     * @param $field
+     * @param array  $values
+     * @param string $boolean
+     *
+     * @return Query
+     */
+    public function whereNotBetween($field, array $values, $boolean = 'and'): self
+    {
+        return $this->where($field, "!=", $values, 'range', $boolean);
+    }
+
+    /**
+     * @param $field
+     * @param array $values
+     *
+     * @return Builder
+     */
+    public function orWhereNotBetween($field, array $values): self
+    {
+        return $this->whereNotBetween($field, $values, 'or');
+    }
+
+    /**
+     * @param $field
+     * @param string $boolean
+     *
+     * @return Query
+     */
+    public function whereExists($field,$boolean = 'and'): self
+    {
+        return $this->where($field, "=", "", "exists", $boolean);
+    }
+
+    /**
+     * @param $field
+     * @param string $boolean
+     *
+     * @return Query
+     */
+    public function whereNotExists($field,$boolean = 'and'): self
+    {
+        return $this->where($field, "!=", "", "exists", $boolean);
+    }
+
+    /**
      * @param $column
      * @param null   $operator
      * @param null   $value
@@ -389,7 +435,7 @@ class Builder
             list($value, $operator) = [$operator, null];
         }
 
-        if ($operator !== '=') {
+        if (in_array($operator,[">=",">","<=","<"])) {
             $leaf = 'range';
         }
 
